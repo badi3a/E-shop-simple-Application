@@ -2,7 +2,6 @@
 =========
 
 This application is a web application developed with the framework symfony 3.1.10
-![stack Overflow](http://lmsotfy.com/so.png)
 .Getting Started
 =========
 you may need to check this steps:
