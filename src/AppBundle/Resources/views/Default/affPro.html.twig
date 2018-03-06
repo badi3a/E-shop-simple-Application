@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <!-- Page Content -->
+
+
+    <div class="row">
+
+        <div class="col-lg-3">
+
+            {% include '@App/Default/moduleUsed/category.html.twig' %}
+            <br><br>
+        </div>
+        <br>
+        <!-- /.col-lg-3 -->
+
+        <div class="col-lg-9">
+            <br><br><br>
+               <table class="table table-danger">
+                   <tr>
+                       <th>Name</th>
+                       <th>Quantity</th>
+                       <th>Description</th>
+                       <th>CreateAT</th>
+                   </tr>
+                   <tr>
+                       <td>{{ product.name }}</td>
+                       <td>{{ product.quantity }}</td>
+                       <td>{{ product.description }}</td>
+                       <td>{{ product.createAt|date('d/M/Y H:i:s')}}</td>
+                   </tr>
+               </table>
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /.col-lg-9 -->
+
+    </div>
+    <!-- /.row -->
+
+
+    <!-- /.container -->
+{% endblock %}
+
+

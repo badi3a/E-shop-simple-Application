@@ -1,0 +1,38 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Panier:show{% endblock %}
+
+{% block body %}
+    <br>
+<h1>Welcome to the Panier:show page</h1>
+    <a href="{{ path('empty_product_panier')}}"><button>Vider</button></a>
+    {% if app.session.has('panier') %}
+        {% set prixTotal = 0 %}
+        <br>
+    <table class="table">
+        <tr><th>Nom </th>
+            <th>Quantity </th>
+            <th>Prix Unit </th>
+            <th>Total </th>
+            <th>Action </th>
+        </tr>
+        {% for produit in app.session.get('panier') %}
+            {% set prixTotal=prixTotal+produit.price %}
+        <tr>
+            <td>{{ produit.name }}</td>
+            <td>{{ produit.quantity }}</td>
+            <td>{{ produit.price }}</td>
+            <td></td>
+            <td><a href="{{ path('remove_product_panier',{'id':produit.id })}}">delete</a></td>
+        </tr>
+        {% endfor %}
+        <tr><td> <b>PrixTotal: {{  prixTotal}} DNT </b></td></tr>
+
+    </table>
+        <br>
+{% else %}
+<div class="alert alert-info">
+    Panier not found
+</div>
+{% endif %}
+{% endblock %}

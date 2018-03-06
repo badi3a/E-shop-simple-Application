@@ -1,0 +1,6 @@
+<h1 class="my-4">Shop Name</h1>
+<div class="list-group">
+    {%  for category in categories %}
+    <a href="{{ path('aff_by_category',{'id':category.id })}}" class="list-group-item {% if categoryAct is defined %}{% if category.id == categoryAct.id %} active {% endif %}{% endif %}">{{ category.name }}</a>
+    {% endfor %}
+</div>

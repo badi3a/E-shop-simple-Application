@@ -1,0 +1,18 @@
+app_product:
+    resource: "@AppBundle/Controller/ProductController.php"
+    type:     annotation
+
+
+users:
+    resource: "@UsersBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+    prefix:   /
+# app/config/routing.yml
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+

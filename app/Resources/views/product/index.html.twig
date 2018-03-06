@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Products list</h1>
+
+    <table CLASS="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Createat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td><a href="{{ path('admin_product_show', { 'id': product.id }) }}">{{ product.id }}</a></td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.quantity }}</td>
+                <td>{% if product.createAt %}{{ product.createAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                            <a href="{{ path('admin_product_show', { 'id': product.id }) }}"><button button class="btn-group-sm btn-info">show</button></a>
+
+                            <a href="{{ path('admin_product_edit', { 'id': product.id }) }}"><button class="btn-group-sm btn-primary">edit</button></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_product_new') }}">Create a new product</a>
+        </li>
+    </ul>
+{% endblock %}

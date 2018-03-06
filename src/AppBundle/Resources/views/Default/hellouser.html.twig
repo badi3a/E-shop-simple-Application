@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+Hello {{ name |upper}}!
+<ul>
+    {%  for i in 1..10 %}
+        <li>{{ i }}</li>
+    {% endfor %}
+
+</ul>
+{% endblock %}
